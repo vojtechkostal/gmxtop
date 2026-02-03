@@ -1,0 +1,6 @@
+./__pycache__
+./gmxtop.egg-info
+./develop.ipynb
+./build
+./test
+./setup.cfg
