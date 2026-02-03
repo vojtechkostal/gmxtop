@@ -1,0 +1,10 @@
+#include "./ph_explicit_atomtypes.itp"
+#include "./ph_explicit.itp"
+
+[ system ]
+; name
+phenol
+
+[ molecules ]
+; name          count
+PH              1
