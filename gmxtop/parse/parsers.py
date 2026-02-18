@@ -1,4 +1,4 @@
-from typing import List, Dict, Tuple, Any, Callable, Optional, get_type_hints
+from typing import List, Dict, Tuple, Any, Callable, Optional, get_type_hints, get_args
 
 from ..sections import (
     Defaults,
@@ -22,7 +22,7 @@ from ..specs.interactions import (
 )
 
 
-def resolve_input(cls, parts: List[str], ignore_missing: bool = False) -> None:
+def resolve_input(cls, parts: List[str], top: Topology) -> None:
     """Resolve and convert input parts to appropriate
     types based on class type hints."""
 
@@ -37,6 +37,13 @@ def resolve_input(cls, parts: List[str], ignore_missing: bool = False) -> None:
         try:
             inputs[field_name] = field_type(part)
         except Exception:
+            if field_name not in ("ifdef_state", "type", "residue"):
+                define_directives = [d.directive for d in top.defines]
+                if part.strip("-") not in define_directives:
+                    raise ValueError(
+                        f"Invalid value '{part}' for field '{field_name}' "
+                        f"in section {cls.__name__} in topology {top.source}."
+                    )
             inputs[field_name] = part
 
     return inputs
@@ -54,7 +61,7 @@ def parse_defaults(
 
     # validate inputs
     parts += [ifdef_state]  # include ifdef_state in defaults
-    inputs = resolve_input(Defaults, parts)
+    inputs = resolve_input(Defaults, parts, top)
 
     if inputs["nbfunc"] not in (1, 2):
         raise ValueError(
@@ -84,7 +91,7 @@ def parse_atomtype(
 ) -> AtomType:
 
     parts += [ifdef_state]  # include ifdef_state in atomtype
-    inputs = resolve_input(AtomType, parts)
+    inputs = resolve_input(AtomType, parts, top)
 
     if inputs['ptype'] not in ("A", "S", "V", "D"):
         raise ValueError(
@@ -139,7 +146,7 @@ def parse_atom(
 ) -> Atom:
 
     parts += [ifdef_state]  # include ifdef_state in atom
-    inputs = resolve_input(Atom, parts)
+    inputs = resolve_input(Atom, parts, top)
 
     if mol.get_atom_by_idx(inputs['nr']) is not None and ifdef_state == "free":
         raise ValueError(

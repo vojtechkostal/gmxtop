@@ -43,10 +43,11 @@ class InteractionSpec:
             try:
                 params[name] = ptype(token)
             except ValueError as e:
-                raise ValueError(
-                    f"Invalid parameter value for '{name}' "
-                    f"(expected type {ptype.__name__}) "
-                    f"in function {func} of {ctx}: got '{token}'."
-                ) from e
+                params[name] = token
+                # raise ValueError(
+                #     f"Invalid parameter value for '{name}' "
+                #     f"(expected type {ptype.__name__}) "
+                #     f"in function {func} of {ctx}: got '{token}'."
+                # ) from e
 
         return params
