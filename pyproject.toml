@@ -16,5 +16,8 @@ Repository = "https://github.com/vojtechkostal/gmxtop"
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tools.setuptools.packages.find]
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
 where = ["."]
