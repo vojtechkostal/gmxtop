@@ -1,11 +1,11 @@
-./__pycache__/
-./gmxtop.egg-info
-./develop.ipynb
-./build
-./test
-./setup.cfg
-./gmxtop/__pycache__/
-./gmxtop/gmxtop.egg-info/
+__pycache__/
+gmxtop.egg-info/
+develop.ipynb
+build/
+test/
+setup.cfg
+gmxtop/__pycache__/
+gmxtop/gmxtop.egg-info/
 
-./gmxtop/parse/__pycache__/
-./gmxtop/specs/__pycache__/
+gmxtop/parse/__pycache__/
+gmxtop/specs/__pycache__/
