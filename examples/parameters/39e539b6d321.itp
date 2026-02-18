@@ -1,3 +1,5 @@
+#define vsa 0.12
+
 [moleculetype]
 ; name nrexcl
 SOL    2
@@ -21,4 +23,4 @@ SOL    2
 
 [dummies3]
 ; Dummy from            funct   a       b
-4       1       2       3       1       0.128187      0.128187
+4       1       2       3       1       vsa      0.128187

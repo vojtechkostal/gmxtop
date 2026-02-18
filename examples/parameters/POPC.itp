@@ -54,7 +54,7 @@ POPC         3
     31         CLc     1     POPC    C21     31      0.7377812032190209    12.0110 ; modified
     32        OBLc     1     POPC    O22     32     -0.5760903292371219    15.9994 ; modified
     33       CTL2s      1     POPC    C22     33   -0.08666     12.011
-    34       HAL2s      1     POPC    H2R     34    0.02333 ;     1.008
+    34       HAL2s      1     POPC    H2R     34    0.02333      1.008
     35       HAL2s      1     POPC    H2S     35    0.02333      1.008
     36       CTL2c     1     POPC     C3     36      0.080    12.0110
     37       HAL2c     1     POPC     HX     37      0.090     1.0080
