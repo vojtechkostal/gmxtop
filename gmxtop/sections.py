@@ -178,9 +178,11 @@ class Defaults(Description):
 
 
 @dataclass(slots=True)
-class Define:
+class Define(MixIn):
     directive: str
     argument: Optional[str | int | float]
+
+    MODIFIABLE: ClassVar[FrozenSet[str]] = frozenset({"argument"})
 
     def __hash__(self):
         return hash(self.directive)

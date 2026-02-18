@@ -1,3 +1,3 @@
-from .sections import Topology
+from .sections import Topology, MoleculeType
 
-__all__ = ['Topology']
+__all__ = ["Topology", "MoleculeType"]
