@@ -270,11 +270,11 @@ def write_topology(top: Topology, fn_out: Path, overwrite: bool = False) -> None
 
     # --- atomtypes ---
     lines += [top.atomtypes[0].header, top.atomtypes[0].legend]
-    used_atomtypes = list({
+    used_atomtypes = list(dict.fromkeys(
         atom.type
         for mol, _ in top.molecules.values()
         for atom in mol.atoms
-    })
+    ))
 
     lines += _emit(used_atomtypes)
 
