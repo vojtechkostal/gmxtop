@@ -4,11 +4,8 @@
 `gmxtop` is a Python package for parsing Gromacs topology files
 
 ## Installation
-1. Clone this repository
-2. OPTIONAL: create a new `conda`/`mamba` environment
-3. install the package using `pip`
 ```bash
-pip install .
+pip install git+https://github.com/vojtechkostal/gmxtop.git
 ```
 
 ## Usage
